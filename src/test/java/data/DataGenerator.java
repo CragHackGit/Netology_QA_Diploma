@@ -67,6 +67,15 @@ public class DataGenerator {
         );
     }
 
+    public static Card getEmptyYearCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                "",
+                generateHolder(),
+                generateCVC()
+        );
+    }
 
     public static Card getPreviousYearCard() {
         return new Card(

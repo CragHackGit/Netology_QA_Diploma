@@ -39,13 +39,14 @@ public abstract class Form {
         errorNotification.shouldNot(Condition.visible);
     }
 
+
     public void invalidDateError(String field) {
-        $x("//span[text()='" + field + "']/..//span[@class='input__sub']")
+        $x("//span[text()='" + field +"']/..//span[@class='input__sub']")
                 .shouldBe(visible, text("Неверно указан срок действия карты"));
     }
 
     public void expiredDateError(String field) {
-        $x("//span[text()='" + field + "']/..//span[@class='input__sub']")
+        $x("//span[text()='" + field +"']/..//span[@class='input__sub']")
                 .shouldBe(visible, text("Истёк срок действия карты"));
     }
 }

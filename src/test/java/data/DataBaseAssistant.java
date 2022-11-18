@@ -22,6 +22,12 @@ public class DataBaseAssistant {
         queryRunner.update(connection, "DELETE FROM payment_entity;");
         queryRunner.update(connection, "DELETE FROM credit_request_entity;");
     }
+
+    @SneakyThrows
+    public static CreditRequestEntity getCreditRequestEntity() {
+        return queryRunner.query(connection, "SELECT * FROM credit_request_entity LIMIT 1;", new BeanHandler<>(CreditRequestEntity.class));
+    }
+
     @SneakyThrows
     public static PaymentEntity getPaymentEntity() {
         return queryRunner.query(connection, "SELECT * FROM payment_entity LIMIT 1;", new BeanHandler<>(PaymentEntity.class));

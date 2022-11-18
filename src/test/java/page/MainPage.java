@@ -27,4 +27,13 @@ public class MainPage {
         errorNotification.should(Condition.hidden);
         return new PayPage();
     }
+
+    public CreditPage getCreditPage() {
+        creditButton.click();
+        formHead.should(Condition.visible, Condition.text("Кредит по данным карты"));
+        form.shouldBe(Condition.visible);
+        successNotification.should(Condition.hidden);
+        errorNotification.should(Condition.hidden);
+        return new CreditPage();
+    }
 }
