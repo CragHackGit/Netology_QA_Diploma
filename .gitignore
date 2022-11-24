@@ -3,6 +3,10 @@ Thumbs.db*
 HELP.md
 .gradle
 build/
+cov/
+allure-results/
+data/
+gate-simulator/node_modules
 
 ### STS ###
 .apt_generated
@@ -43,3 +47,4 @@ out/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+!artifacts/aqa-shop.jar
