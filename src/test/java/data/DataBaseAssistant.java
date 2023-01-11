@@ -28,16 +28,16 @@ public class DataBaseAssistant {
 
     @SneakyThrows
     public static CreditRequestEntity getCreditRequestEntity() {
-        return queryRunner.query(connection, "SELECT * FROM credit_request_entity LIMIT 1;", new BeanHandler<>(CreditRequestEntity.class));
+        return queryRunner.query(connection, "SELECT * FROM credit_request_entity ORDER BY created DESC LIMIT 1;", new BeanHandler<>(CreditRequestEntity.class));
     }
 
     @SneakyThrows
     public static PaymentEntity getPaymentEntity() {
-        return queryRunner.query(connection, "SELECT * FROM payment_entity LIMIT 1;", new BeanHandler<>(PaymentEntity.class));
+        return queryRunner.query(connection, "SELECT * FROM payment_entity ORDER BY created DESC LIMIT 1;", new BeanHandler<>(PaymentEntity.class));
     }
 
     @SneakyThrows
     public static OrderEntity getOrderEntity() {
-        return queryRunner.query(connection, "SELECT * FROM order_entity LIMIT 1;", new BeanHandler<>(OrderEntity.class));
+        return queryRunner.query(connection, "SELECT * FROM order_entity ORDER BY created DESC LIMIT 1;", new BeanHandler<>(OrderEntity.class));
     }
 }

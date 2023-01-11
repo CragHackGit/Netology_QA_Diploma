@@ -1,4 +1,4 @@
-package test;
+package test.api;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.google.gson.Gson;

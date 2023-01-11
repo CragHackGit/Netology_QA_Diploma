@@ -1,7 +1,6 @@
-package test;
+package test.ui;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.*;
 import entities.Card;
 import entities.OrderEntity;
 import entities.PaymentEntity;
