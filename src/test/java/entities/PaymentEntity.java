@@ -1,4 +1,4 @@
-package data;
+package entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +9,10 @@ import java.sql.Timestamp;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreditRequestEntity {
+public class PaymentEntity {
     private String id;
-    private String bank_id;
+    private int amount;
     private Timestamp created;
     private String status;
+    private String transaction_id;
 }

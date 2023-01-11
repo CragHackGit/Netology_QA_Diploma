@@ -1,6 +1,7 @@
 package data;
 
 import com.github.javafaker.Faker;
+import entities.Card;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -11,12 +12,12 @@ public class DataGenerator {
     private static final String approvedCardNumber = "4444 4444 4444 4441";
     private static final String declinedCardNumber = "4444 4444 4444 4442";
 
-    private static String generateMonth(int i) {
-        return LocalDate.now().plusMonths(i).format(DateTimeFormatter.ofPattern("MM"));
+    private static String generateMonth(int shiftedMonths) {
+        return LocalDate.now().plusMonths(shiftedMonths).format(DateTimeFormatter.ofPattern("MM"));
     }
 
-    private static String generateYear(int i) {
-        return LocalDate.now().plusYears(i).format(DateTimeFormatter.ofPattern("yy"));
+    private static String generateYear(int shiftedYears) {
+        return LocalDate.now().plusYears(shiftedYears).format(DateTimeFormatter.ofPattern("yy"));
     }
 
     private static String generateHolder() {
@@ -67,15 +68,15 @@ public class DataGenerator {
         );
     }
 
-    public static Card getEmptyYearCard() {
-        return new Card(
-                approvedCardNumber,
-                generateMonth(0),
-                "",
-                generateHolder(),
-                generateCVC()
-        );
-    }
+//    public static Card getEmptyYearCard() {
+//        return new Card(
+//                approvedCardNumber,
+//                generateMonth(0),
+//                "",
+//                generateHolder(),
+//                generateCVC()
+//        );
+//    }
 
     public static Card getPreviousYearCard() {
         return new Card(

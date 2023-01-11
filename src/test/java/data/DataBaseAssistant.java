@@ -1,5 +1,8 @@
 package data;
 
+import entities.CreditRequestEntity;
+import entities.OrderEntity;
+import entities.PaymentEntity;
 import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;

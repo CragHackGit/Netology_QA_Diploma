@@ -2,6 +2,9 @@ package test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import data.*;
+import entities.Card;
+import entities.CreditRequestEntity;
+import entities.OrderEntity;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import page.CreditPage;

@@ -1,8 +1,8 @@
 package page;
 
-import data.Card;
+import entities.Card;
 
-public class PayPage extends Form {
+public class PayPage extends FormAssertions {
     public void pay(Card card) {
         cardNumberField.setValue(card.getNumber());
         monthField.setValue(card.getMonth());

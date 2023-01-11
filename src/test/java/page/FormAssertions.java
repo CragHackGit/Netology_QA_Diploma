@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$x;
 import static page.MainPage.errorNotification;
 import static page.MainPage.successNotification;
 
-public abstract class Form {
+public abstract class FormAssertions {
 
     public SelenideElement cardNumberField = $x("//*[@id=\"root\"]/div/form/fieldset/div[1]/span/span/span[2]/input");
     public SelenideElement monthField = $x("//*[@id=\"root\"]/div/form/fieldset/div[2]/span/span[1]/span/span/span[2]/input");
