@@ -1,8 +1,12 @@
 package data;
 
 import entities.Card;
+import io.qameta.allure.restassured.AllureRestAssured;
+import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -32,5 +36,12 @@ public class ApiHelper {
                         .extract()
                         .response();
         return response.path("status");
+    }
+
+    public void filters() {
+        RestAssured.filters(
+                new RequestLoggingFilter(),
+                new ResponseLoggingFilter(),
+                new AllureRestAssured());
     }
 }

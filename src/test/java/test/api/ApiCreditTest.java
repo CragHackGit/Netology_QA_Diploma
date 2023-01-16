@@ -4,12 +4,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import data.*;
 import entities.OrderEntity;
 import entities.CreditRequestEntity;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.qameta.allure.selenide.AllureSelenide;
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
-
 import org.junit.jupiter.api.*;
 
 import static data.DataBaseAssistant.*;
@@ -29,10 +24,7 @@ public class ApiCreditTest {
 
     @BeforeEach
     public void prepare() {
-        RestAssured.filters(
-                new RequestLoggingFilter(),
-                new ResponseLoggingFilter(),
-                new AllureRestAssured());
+        ApiHelper.filters();
         DataBaseAssistant.cleanData();
     }
 
