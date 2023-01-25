@@ -49,7 +49,7 @@ public class ApiPayTest {
 
         assertEquals(order.getPayment_id(), payment.getTransaction_id());
         assertEquals("approved", payment.getStatus().toLowerCase());
-        assertEquals(45_000, payment.getAmount());
+        assertEquals(45_000_00, payment.getAmount());
     }
 
     @DisplayName("checkPaymentDeclinedCard")
@@ -67,6 +67,6 @@ public class ApiPayTest {
 
         assertEquals(order.getPayment_id(), payment.getTransaction_id());
         assertEquals("declined", payment.getStatus().toLowerCase());
-        assertEquals(45_000, payment.getAmount());
+        assertEquals(45_000_00, payment.getAmount());
     }
 }

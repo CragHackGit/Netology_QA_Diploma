@@ -105,7 +105,7 @@ public class UICreditPageTest {
         page.pay(card);
         page.checkErrorNotificationAbsent();
         page.checkSuccessNotificationAbsent();
-        page.invalidDateError("Месяц");
+        page.expiredDateError("Год");
     }
 
     @Test

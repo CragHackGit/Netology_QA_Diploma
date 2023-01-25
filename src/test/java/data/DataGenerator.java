@@ -59,10 +59,18 @@ public class DataGenerator {
     }
 
     public static Card getPreviousMonthCard() {
+        var currentMonth = Integer.parseInt(generateMonth(0));
+        var currentYear = Integer.parseInt(generateYear(0));
+        if (currentMonth == 1) {
+            currentMonth = 12;
+            currentYear = currentYear - 1;
+        } else currentMonth = currentMonth - 1;
+        String m=String.valueOf(currentMonth);
+        String y=String.valueOf(currentYear);
         return new Card(
                 approvedCardNumber,
-                generateMonth(-1),
-                generateYear(0),
+                m,
+                y,
                 generateHolder(),
                 generateCVC()
         );

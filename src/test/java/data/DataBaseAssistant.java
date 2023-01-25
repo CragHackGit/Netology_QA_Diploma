@@ -12,11 +12,15 @@ import java.sql.DriverManager;
 public class DataBaseAssistant {
 
     private static QueryRunner queryRunner = new QueryRunner();
+
+    private static String userName = "app";
+    private static String password = "pass";
+    private static String url = System.getProperty("db.url");
     private static Connection connection = getConnection();
 
     @SneakyThrows
     private static Connection getConnection() {
-        return DriverManager.getConnection(System.getProperty("db.url"), "app", "pass");
+        return DriverManager.getConnection(url, userName, password);
     }
 
     @SneakyThrows
