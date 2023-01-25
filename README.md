@@ -12,15 +12,15 @@
 3. В терминале IDEA запустить контейнеры с помощью команды:  
 `docker-compose up -d`
 4. Запустить тестируемое приложение:  
-`для mySQL:
-java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar`  
-`для postgresgl:
-java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar`
+для mySQL:  
+`java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar`  
+для postgresgl:  
+`java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar`
 5. Открыть второй терминал и ввести команду для запуска тестов:  
-`для mySQL:
-./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"`  
-`для postgresgl:
-./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app"`
+для mySQL:  
+`./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"`  
+для postgresgl:  
+`./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app"`
 6. Для генерации отчета тестирования используется команда:  
 `./gradlew allureServe`
 7. Для завершения работы allureServe используется сочетание клавиш:  
