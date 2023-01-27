@@ -49,4 +49,12 @@ public abstract class FormAssertions {
         $x("//span[text()='" + field +"']/..//span[@class='input__sub']")
                 .shouldBe(visible, text("Истёк срок действия карты"));
     }
+    public void wrongFormatError(String field) {
+        $x("//span[text()='" + field +"']/..//span[@class='input__sub']")
+                .shouldBe(visible, text("Неверный формат"));
+    }
+    public void fieldIsEmptyError(String field) {
+        $x("//span[text()='" + field +"']/..//span[@class='input__sub']")
+                .shouldBe(visible, text("Поле обязательно для заполнения"));
+    }
 }

@@ -126,4 +126,176 @@ public class UIPayPageTest {
         page.checkSuccessNotificationAbsent();
         page.invalidDateError("Год");
     }
+
+    @Test
+    @DisplayName("testDebitPayEmptyCardNumber")
+    public void testDebitPayEmptyCardNumber() {
+        card = getEmptyCardNumberCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.fieldIsEmptyError("Номер карты");
+    }
+    @Test
+    @DisplayName("testDebitPayOneDigitCardNumber")
+    public void testDebitPayOneDigitCardNumber() {
+        card = getOneDigitCardNumberCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.wrongFormatError("Номер карты");
+    }
+
+    @Test
+    @DisplayName("testDebitPayFifteenDigitsCardNumber")
+    public void testDebitPayFifteenDigitsCardNumber() {
+        card = getFifteenDigitsCardNumberCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.wrongFormatError("Номер карты");
+    }
+    @Test
+    @DisplayName("testDebitPayEmptyMonth")
+    public void testDebitPayEmptyMonth() {
+        card = getEmptyMonthCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.fieldIsEmptyError("Месяц");
+    }
+
+    @Test
+    @DisplayName("testDebitPayMonthValueIsGreaterTwelve")
+    public void testDebitPayMonthValueIsGreaterTwelve() {
+        card = getMonthGreaterTwelveCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.invalidDateError("Месяц");
+    }
+
+    @Test
+    @DisplayName("testDebitPayMonthValueIsLessOne")
+    public void testDebitPayMonthValueIsLessOne() {
+        card = getMonthLessOneCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.invalidDateError("Месяц");
+    }
+    @Test
+    @DisplayName("testDebitPayEmptyYear")
+    public void testDebitPayEmptyYear() {
+        card = getEmptyYearCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.fieldIsEmptyError("Год");
+    }
+
+    @Test
+    @DisplayName("testDebitPayYearOfZeros")
+    public void testDebitPayYearOfZeros() {
+        card = getYearOfZerosCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.expiredDateError("Год");
+    }
+    @Test
+    @DisplayName("testDebitEmptyCvv")
+    public void testDebitEmptyCvv() {
+        card = getEmptyCvvCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.fieldIsEmptyError("CVC/CVV");
+    }
+
+    @Test
+    @DisplayName("testDebitOneDigitCvv")
+    public void testDebitOneDigitCvv() {
+        card = getOneDigitCvvCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.wrongFormatError("CVC/CVV");
+    }
+
+    @Test
+    @DisplayName("testDebitTwoDigitCvv")
+    public void testDebitTwoDigitCvv() {
+        card = getTwoDigitsCvvCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.wrongFormatError("CVC/CVV");
+    }
+
+    @Test
+    @DisplayName("testDebitCvvOfZeros")
+    public void testDebitCvvOfZeros() {
+        card = getCvvOfZerosCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationPresent();
+    }
+    @Test
+    @DisplayName("testDebitCapitalOwner")
+    public void testDebitCapitalOwner() {
+        card = getCapitalOwnerCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationPresent();
+    }
+
+    @Test
+    @DisplayName("testDebitOwnerWithDash")
+    public void testDebitOwnerWithDash() {
+        card = getOwnerWithDashCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationPresent();
+    }
+
+    @Test
+    @DisplayName("testDebitEmptyOwner")
+    public void testDebitEmptyOwner() {
+        card = getEmptyOwnerCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.fieldIsEmptyError("Владелец");
+    }
+
+    @Test
+    @DisplayName("testDebitOneWordOwner")
+    public void testDebitOneWordOwner() {
+        card = getOneWordOwnerCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.wrongFormatError("Владелец");
+    }
+
+    @Test
+    @DisplayName("testDebitCyrillicOwner")
+    public void testDebitCyrillicOwner() {
+        card = getCyrillicOwnerCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.wrongFormatError("Владелец");
+    }
+
+    @Test
+    @DisplayName("testDebitSymbolsOwner")
+    public void testDebitSymbolsOwner() {
+        card = getSymbolsOwnerCard();
+        page.pay(card);
+        page.checkErrorNotificationAbsent();
+        page.checkSuccessNotificationAbsent();
+        page.wrongFormatError("Владелец");
+    }
 }

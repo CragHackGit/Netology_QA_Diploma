@@ -65,8 +65,8 @@ public class DataGenerator {
             currentMonth = 12;
             currentYear = currentYear - 1;
         } else currentMonth = currentMonth - 1;
-        String m=String.valueOf(currentMonth);
-        String y=String.valueOf(currentYear);
+        String m = String.valueOf(currentMonth);
+        String y = String.valueOf(currentYear);
         return new Card(
                 approvedCardNumber,
                 m,
@@ -92,6 +92,181 @@ public class DataGenerator {
                 generateMonth(0),
                 generateYear(6),
                 generateHolder(),
+                generateCVC()
+        );
+    }
+
+    public static Card getEmptyCardNumberCard() {
+        return new Card(
+                "",
+                generateMonth(0),
+                generateYear(0),
+                generateHolder(),
+                generateCVC()
+        );
+    }
+    public static Card getOneDigitCardNumberCard() {
+        return new Card(
+                faker.numerify("#"),
+                generateMonth(0),
+                generateYear(0),
+                generateHolder(),
+                generateCVC()
+        );
+    }
+
+    public static Card getFifteenDigitsCardNumberCard() {
+        return new Card(
+                faker.numerify("#### #### #### ###"),
+                generateMonth(0),
+                generateYear(0),
+                generateHolder(),
+                generateCVC()
+        );
+    }
+    public static Card getEmptyMonthCard() {
+        return new Card(
+                approvedCardNumber,
+                "",
+                generateYear(0),
+                generateHolder(),
+                generateCVC()
+        );
+    }
+
+    public static Card getMonthGreaterTwelveCard() {
+        return new Card(
+                approvedCardNumber,
+                "77",
+                generateYear(0),
+                generateHolder(),
+                generateCVC()
+        );
+    }
+
+    public static Card getMonthLessOneCard() {
+        return new Card(
+                approvedCardNumber,
+                "00",
+                generateYear(0),
+                generateHolder(),
+                generateCVC()
+        );
+    }
+    public static Card getEmptyYearCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                "",
+                generateHolder(),
+                generateCVC()
+        );
+    }
+
+    public static Card getYearOfZerosCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                "00",
+                generateHolder(),
+                generateCVC()
+        );
+    }
+    public static Card getEmptyCvvCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                generateYear(0),
+                generateHolder(),
+                ""
+        );
+    }
+
+    public static Card getOneDigitCvvCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                generateYear(0),
+                generateHolder(),
+                faker.numerify("#")
+        );
+    }
+
+    public static Card getTwoDigitsCvvCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                generateYear(0),
+                generateHolder(),
+                faker.numerify("##")
+        );
+    }
+
+    public static Card getCvvOfZerosCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                generateYear(0),
+                generateHolder(),
+                "000"
+        );
+    }
+    public static Card getCapitalOwnerCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                generateYear(0),
+                generateHolder().toUpperCase(),
+                generateCVC()
+        );
+    }
+
+    public static Card getOwnerWithDashCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                generateYear(0),
+                "KROLIKOV-VOLKOV OLEG",
+                generateCVC()
+        );
+    }
+
+    public static Card getEmptyOwnerCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                generateYear(0),
+                "",
+                generateCVC()
+        );
+    }
+
+    public static Card getOneWordOwnerCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                generateYear(0),
+                "PETROVICH",
+                generateCVC()
+        );
+    }
+
+    public static Card getCyrillicOwnerCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                generateYear(0),
+                "САЛОЕДОВ АНТОН",
+                generateCVC()
+        );
+    }
+
+    public static Card getSymbolsOwnerCard() {
+        return new Card(
+                approvedCardNumber,
+                generateMonth(0),
+                generateYear(0),
+                "@|**$^ #!<~][",
                 generateCVC()
         );
     }
